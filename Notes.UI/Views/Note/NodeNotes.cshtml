@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Notes.UI.Models.NoteModel>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <div id="nodeNote">
+            <ul class="info">
+                @Html.DisplayFor(modelItem => item.Note1)
+                <li>@Html.ActionLink("Edit", "Edit", new { item.Id })</li>
+                <li>@Html.ActionLink("Add", "NodeNote", new { item.Id })</li>
+                <li>@Html.ActionLink("Delete", "Delete", new { item.Id })</li>
+            </ul>
+        </div>
+        <div id="nodeNotes">
+            @Html.Action("NodeNotes", "Note", new { item.Id })
+        </div>
+    }
+}
+
+
+
